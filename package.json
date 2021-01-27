@@ -1,7 +1,7 @@
 {
-  "name": "cli-starter-kit",
+  "name": "set-heroku-env",
   "version": "0.1.0",
-  "description": "Starter kit for node.js based cli",
+  "description": "A CLI to read a dotenv file and use it to set the heroku env",
   "main": "index.js",
   "author": "Sunny Hirai",
   "license": "MIT",
