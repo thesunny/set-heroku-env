@@ -32,12 +32,17 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
-    "chalk": "^4.1.0"
+    "chalk": "^4.1.0",
+    "dotenv": "^8.2.0"
   },
   "scripts": {
     "tsc": "tsc",
     "build": "rollup --config",
-    "dev": "babel-node ./scripts/hello.ts --extensions='.ts' --name=John",
-    "update:kit": "git pull git@github.com:thesunny/cli-starter-kit.git"
+    "dev:set": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.heroku",
+    "dev:unset": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.unset",
+    "dev:empty": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.empty",
+    "dev:missing": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts'",
+    "dev:not-found": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.not-found",
+    "dev:kit": "git pull git@github.com:thesunny/cli-starter-kit.git"
   }
 }

@@ -59,7 +59,7 @@ export default {
     {
       banner: "#!/usr/bin/env node",
       // name: "__hello__", // Provide in CLI as args.n
-      file: "bin/hello.js", // Provide in CLI as args.o
+      // file: "bin/hello.js", // Provide in CLI as args.o
       format: "cjs",
       sourcemap: true,
     },
