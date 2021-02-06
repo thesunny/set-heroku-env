@@ -1,6 +1,6 @@
 {
   "name": "set-heroku-env",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A CLI to read a dotenv file and use it to set the heroku env",
   "main": "index.js",
   "author": "Sunny Hirai",
@@ -9,7 +9,7 @@
     "bin/*"
   ],
   "bin": {
-    "hello": "./bin/hello.js"
+    "set-heroku-env": "./bin/set-heroku-env.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
@@ -23,7 +23,6 @@
     "@types/minimist": "^1.2.1",
     "@types/node": "^14.14.22",
     "babel-plugin-root-import": "^6.6.0",
-    "minimist": "^1.2.5",
     "rollup": "^2.38.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-sizes": "^1.0.3",
@@ -33,7 +32,8 @@
   },
   "dependencies": {
     "chalk": "^4.1.0",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "minimist": "^1.2.5"
   },
   "scripts": {
     "tsc": "tsc",
@@ -43,6 +43,6 @@
     "dev:empty": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.empty",
     "dev:missing": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts'",
     "dev:not-found": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.not-found",
-    "dev:kit": "git pull git@github.com:thesunny/cli-starter-kit.git"
+    "update:kit": "git pull git@github.com:thesunny/cli-starter-kit.git"
   }
 }
