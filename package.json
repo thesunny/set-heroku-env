@@ -1,6 +1,6 @@
 {
   "name": "set-heroku-env",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "A CLI to read a dotenv file and use it to set the heroku env",
   "main": "index.js",
   "author": "Sunny Hirai",
