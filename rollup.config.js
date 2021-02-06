@@ -1,7 +1,6 @@
 // import { DEFAULT_EXTENSIONS } from "@babel/core"
 import commonjs from "@rollup/plugin-commonjs"
 import json from "@rollup/plugin-json"
-import minimist from "minimist"
 import fs from "fs"
 // import nodePolyfills from "rollup-plugin-node-polyfills"
 // import replace from "rollup-plugin-replace"
@@ -60,6 +59,7 @@ export default {
       banner: "#!/usr/bin/env node",
       // name: "__hello__", // Provide in CLI as args.n
       // file: "bin/hello.js", // Provide in CLI as args.o
+      dir: "bin",
       format: "cjs",
       sourcemap: true,
     },
