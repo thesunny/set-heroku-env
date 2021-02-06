@@ -38,6 +38,8 @@
   "scripts": {
     "tsc": "tsc",
     "build": "rollup --config",
+    "# prepare": "# automatically called during 'yarn publish'",
+    "prepare": "yarn build",
     "dev:set": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.heroku",
     "dev:unset": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.unset",
     "dev:empty": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.empty",
