@@ -16,19 +16,29 @@ function convertEnvToShell(env: Env) {
   const unsetEntries = []
   for (const [key, value] of Object.entries(env)) {
     if (key.startsWith("__")) {
-      throw new Error(`Config var keys must not start with __`)
+      throw new Error(
+        `Config var keys must not start with __ ${JSON.stringify(key)}`
+      )
     }
     if (key.startsWith("HEROKU_")) {
-      throw new Error(`Config var keys must not start with HEROKU_`)
+      throw new Error(
+        `Config var keys must not start with HEROKU_ but is ${JSON.stringify(
+          key
+        )}`
+      )
     }
     if (key.match(KEY_REG_EXP) == null) {
       throw new Error(
-        `Config var keys must be alphanumeric and underscore only`
+        `Config var keys must be alphanumeric and underscore only but is ${JSON.stringify(
+          key
+        )}`
       )
     }
     if (value.includes("'")) {
       throw new Error(
-        `Config var values with a single quote not supported at the moment`
+        `Config var values with a single quote not supported at the moment but is ${JSON.stringify(
+          value
+        )}`
       )
     }
     if (value.length > 0) {
