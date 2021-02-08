@@ -4,7 +4,7 @@ import chalk from "chalk"
 
 type Env = { [key: string]: string }
 
-const KEY_REG_EXP = /^[A-Z_]+$/i
+const KEY_REG_EXP = /^[A-Z0-9_]+$/i
 
 /**
  * How to run shell scripts from node
