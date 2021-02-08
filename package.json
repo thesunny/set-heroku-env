@@ -41,10 +41,11 @@
     "# prepare": "# automatically called during 'yarn publish'",
     "prepare": "yarn build",
     "dev:set": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.heroku",
-    "dev:unset": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.unset",
-    "dev:empty": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.empty",
-    "dev:missing": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts'",
-    "dev:not-found": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.not-found",
+    "dev:set:app": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.heroku --app=set-heroku-env",
+    "dev:unset": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.unset --app=set-heroku-env",
+    "dev:empty": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.empty --app=set-heroku-env",
+    "dev:missing": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --app=set-heroku-env",
+    "dev:not-found": "babel-node ./scripts/set-heroku-env.ts --extensions='.ts' --dotenv=.env.not-found --app=set-heroku-env",
     "update:kit": "git pull git@github.com:thesunny/cli-starter-kit.git"
   }
 }

@@ -6,12 +6,22 @@ import chalk from "chalk"
 const args = minimist(process.argv)
 
 if (typeof args.dotenv !== "string") {
-  console.log(chalk.keyword("crimson")("Missing command line argument"))
+  console.log(
+    chalk.keyword("crimson")(`Missing command line argument "dotenv"`)
+  )
   console.log(
     chalk.keyword("crimson")(`--dotenv=path-to-dotenv is a required argument`)
   )
   process.exit()
 }
+
+// if (typeof args.dotenv !== "string") {
+//   console.log(chalk.keyword("crimson")(`Missing command line argument "app"`))
+//   console.log(
+//     chalk.keyword("crimson")(`--app=name-of-heroku-app is a required argument`)
+//   )
+//   process.exit()
+// }
 
 const env = dotenv.config({ path: args.dotenv }).parsed
 
@@ -27,4 +37,4 @@ if (env == null) {
   process.exit()
 }
 
-setHerokuEnv({ env, app: "set-heroku-env" })
+setHerokuEnv({ env, app: args.app })

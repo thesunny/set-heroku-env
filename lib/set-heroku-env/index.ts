@@ -48,7 +48,9 @@ function convertEnvToShell(env: Env) {
     }
   }
   return {
+    setEntries,
     setScriptVars: setEntries.join(" "),
+    unsetEntries,
     unsetScriptVars: unsetEntries.join(" "),
   }
 }
@@ -59,26 +61,41 @@ export function setHerokuEnv({ env, app }: { env: Env; app: string }) {
   console.log(chalk.keyword("lime")("Variables from dotenv file"))
   console.log(env)
 
-  const { setScriptVars, unsetScriptVars } = convertEnvToShell(env)
+  const {
+    setEntries,
+    setScriptVars,
+    unsetEntries,
+    unsetScriptVars,
+  } = convertEnvToShell(env)
+
+  const appPart = app ? `-a ${app} ` : ""
 
   if (setScriptVars.length > 0) {
-    const setScript = `heroku config:set -a ${app} ${setScriptVars}`
+    const setScript = `heroku config:set ${appPart}${setScriptVars}`
     console.log()
     console.log(chalk.keyword("lime")(`Executing set env script...`))
+    console.log(setEntries.join("\n"))
+    console.log()
     console.log(chalk.keyword("white")(setScript))
+    console.log()
     execSync(setScript)
   } else {
     console.log()
     console.log(chalk.keyword("orange")("No vars to set. skipping..."))
   }
   if (unsetScriptVars.length > 0) {
-    const unsetScript = `heroku config:unset -a ${app} ${unsetScriptVars}`
+    const unsetScript = `heroku config:unset ${appPart}${unsetScriptVars}`
     console.log()
     console.log(chalk.keyword("lime")(`Executing unset env script...`))
+    console.log(unsetEntries.join("\n"))
+    console.log()
     console.log(chalk.keyword("white")(unsetScript))
+    console.log()
     execSync(unsetScript)
   } else {
     console.log()
     console.log(chalk.keyword("orange")("No vars to unset. skipping..."))
   }
+  console.log()
+  console.log(chalk.keyword("lime")(`Done.`))
 }
